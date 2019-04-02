@@ -11,30 +11,45 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class Archivo {
 
     public static void main(String[] args) {
         Scanner popo = new Scanner(System.in);
         String frase;
-        int conta = 0,x;
+        int i,conta=0,conte=0,conti=0,conto=0,contu=0;
+        char caracter;
+        char [] Arraycadena;
         try {
             File archivo = new File("texto.txt");//creaar o abrir acceso a un archivo y en un constructor
             FileWriter escribir = new FileWriter(archivo, true);//escribir sobre un archivo 
-            System.out.println("¿Que deseas escribir?"); //lo que desea escribir
-            frase=popo.next();
-            for(x=0;x<frase.length();x++){
-                if(frase.charAt(x)=='a' || frase.charAt(x)=='e' || frase.charAt(x)=='i' || frase.charAt(x)=='o' || frase.charAt(x)=='u' || frase.charAt(x)=='A' || frase.charAt(x)=='E' || frase.charAt(x)=='I' || frase.charAt(x)=='O' || frase.charAt(x)=='U'){
+            
+            System.out.println("Escribe");
+            frase = popo.next();
+            for (i = 0; i < frase.length(); i++) {
+                if(frase.charAt(i)=='a'){
                     conta++;
                 }
+                if(frase.charAt(i)=='e'){
+                    conte++;
+                }
+                if(frase.charAt(i)=='i'){
+                    conti++;
+                }
+                if(frase.charAt(i)=='o'){
+                    conto++;
+                }
+                if(frase.charAt(i)=='u'){
+                    contu++;
+                }
             }
-            System.out.println("Contiene\t"+conta+"\tvocales");
+            System.out.println("A="+conta+"\nE="+conte+"\nI="+conti+"\nO="+conto+"\nU="+contu);
             escribir.write(frase);//Escribir en el archivo con el metodo write 
             escribir.close();//crear una conexion
-        } 
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error al escribir");
         }
     }
-
 }
